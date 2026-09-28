@@ -5,22 +5,12 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-            public int solution(int angle) {
-                int answer = 0;
-
-                if (angle > 0 && angle < 90) {
-                    answer=1;
+            public String solution(int num) {
+                if (num % 2==0) {
+                    return("Even");
+                } else {
+                    return("Odd");
                 }
-                else if (angle == 90) {
-                    answer=2;
-                }
-                else if (angle > 90 && angle < 180) {
-                    answer=3;
-                }
-                else {
-                    answer=4;
-                }
-                return answer;
             }
         }
     }
