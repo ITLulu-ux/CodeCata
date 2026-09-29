@@ -5,12 +5,13 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-            public String solution(int num) {
-                if (num % 2==0) {
-                    return("Even");
-                } else {
-                    return("Odd");
+            public double solution(int[] arr) {
+                double sum = 0;
+
+                for (int num : arr) {
+                    sum += num;
                 }
+                return sum / arr.length;
             }
         }
     }
