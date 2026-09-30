@@ -5,13 +5,13 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-            public double solution(int[] arr) {
-                double sum = 0;
-
-                for (int num : arr) {
-                    sum += num;
+            public int solution(int n) {
+                int answer = 0;
+                while(n>0) {
+                    answer += n%10;
+                    n/=10;
                 }
-                return sum / arr.length;
+                return answer;
             }
         }
     }
