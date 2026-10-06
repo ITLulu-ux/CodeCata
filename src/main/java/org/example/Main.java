@@ -5,15 +5,16 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-            public int solution(int n) {
-                int answer = 0;
-
-                for (int x=1; x<n; x++) {
-                    if (n%x==1) {
-                        answer=x;
-                        break;
-                    }
+            public int[] solution(long n) {
+                String str = Long.toString(n);
+                StringBuilder sb = new StringBuilder(str);
+                str = sb.reverse().toString();
+                char[] ch = str.toCharArray();
+                int[] answer = new int[ch.length];
+                for (int i = 0; i < ch.length; i++) {
+                    answer[i] = ch[i] - '0';
                 }
+
                 return answer;
             }
         }
