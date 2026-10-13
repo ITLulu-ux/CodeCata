@@ -5,9 +5,16 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-            public boolean solution(int x) {
-                int sum = String.valueOf(x).chars().map(ch -> ch - '0').sum();
-                return x % sum == 0;
+            public long solution(int a, int b) {
+                long answer = 0;
+                long min = Math.min(a, b);
+                long max = Math.max(a, b);
+
+                for (long i = min; i <= max; i++) {
+                    answer += i;
+                }
+
+                return answer;
             }
         }
     }
