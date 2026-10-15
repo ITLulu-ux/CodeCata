@@ -5,19 +5,12 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-            public int solution(long num) {
-                int answer = 0;
+            public String solution(String[] seoul) {
+                String answer = "";
 
-                while(num != 1) {
-                    if(num % 2 == 0)
-                        num /= 2;
-                    else
-                        num = num * 3 + 1;
-                    answer++;
-
-                    if(answer >= 500) {
-                        answer = -1;
-                        break;
+                for(int i=0; i<seoul.length; i++) {
+                    if(seoul[i].equals("Kim")) {
+                        answer = "김서방은 " + i + "에 있다";
                     }
                 }
 
