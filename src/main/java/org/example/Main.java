@@ -7,15 +7,12 @@ public class Main {
     public static void main(String[] args) {
 
         class Solution {
-
-            public int[] solution(int[] arr, int divisor) {
-                int[] answer = Arrays.stream(arr)
-                        .filter(i -> i % divisor == 0)
-                        .sorted()
-                        .toArray();
-                return (answer.length == 0)? new int[] {-1} : answer;
+            public int solution(int[] absolutes, boolean[] signs) {
+                int answer = 0;
+                for (int i=0; i<signs.length; i++)
+                    answer += absolutes[i] * (signs[i]? 1: -1);
+                return answer;
             }
-
         }
     }
 }
