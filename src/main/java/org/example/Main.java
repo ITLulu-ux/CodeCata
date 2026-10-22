@@ -8,8 +8,19 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-            public int solution(int[] numbers) {
-                return IntStream.range(0, 10).filter(i -> Arrays.stream(numbers).noneMatch(num -> i == num)).sum();
+            public int[] solution(int[] arr) {
+                // 배열 길이가 1 이하인 경우 -1을 담아 리턴
+                if (arr.length <= 1) {
+                    return new int[]{-1};
+                }
+
+                // 배열에서 가장 작은 값 구하기
+                int min = Arrays.stream(arr).min().getAsInt();
+
+                // 가장 작은 수를 제외한 요소들만 필터링하여 배열로 리턴
+                return Arrays.stream(arr)
+                        .filter(i -> i != min)
+                        .toArray();
             }
         }
     }
