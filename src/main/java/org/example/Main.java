@@ -8,16 +8,12 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-            public String solution(String s) {
+            public String solution(int n) {
                 String answer = "";
-                int length = s.length();
 
-                if(length % 2 == 0) {
-                    answer = s.substring(length/2-1, length/2+1);
-                } else {
-                    answer = s.substring(length/2, length/2+1);
+                for(int i=1; i<=n; i++) {
+                    answer += i%2!=0 ? "수" : "박";
                 }
-
 
                 return answer;
             }
