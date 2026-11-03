@@ -8,16 +8,15 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-            public boolean solution(String s) {
-                if (s.length() != 4 && s.length() != 6) {
-                    return false;
-                }
-                for (char c : s.toCharArray()) {
-                    if (!Character.isDigit(c)) {
-                        return false;
+            public int[][] solution(int[][] arr1, int[][] arr2) {
+                int[][] answer = new int[arr1.length][arr1[0].length];
+
+                for(int i = 0; i < arr1.length; i++) {
+                    for(int j = 0; j < arr1[0].length; j++) {
+                        answer[i][j] = arr1[i][j] + arr2[i][j];
                     }
                 }
-                return true;
+                return answer;
             }
         }
     }
