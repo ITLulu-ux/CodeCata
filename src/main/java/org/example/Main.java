@@ -8,18 +8,17 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-            public static void main(String[] args) {
-                Scanner sc = new Scanner(System.in);
-                int a = sc.nextInt();
-                int b = sc.nextInt();
 
-                for(int i = 0; i < b; i++) {
-                    for(int j = 0; j < a; j++) {
-                        System.out.print("*");
-                    }
-                    System.out.println();
-                }
+            public int[] solution(int n, int m) {
+                int gcd = gcd(n, m);
+                return new int[] {gcd, (int)((long) n * m / gcd)}; // long으로 캐스팅하여 오버플로우 방지
             }
+
+            // 유클리드 호제법을 이용한 최대공약수 계산
+            public int gcd(int a, int b) {
+                return (b == 0) ? a : gcd(b, a % b);
+            }
+
         }
     }
 }
