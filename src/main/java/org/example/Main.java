@@ -8,17 +8,17 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
         class Solution {
+            public int solution(int n) {
+                StringBuilder sb = new StringBuilder();
 
-            public int[] solution(int n, int m) {
-                int gcd = gcd(n, m);
-                return new int[] {gcd, (int)((long) n * m / gcd)}; // long으로 캐스팅하여 오버플로우 방지
+                while (n > 0) {
+                    sb.append(n % 3);
+                    n /= 3;
+                }
+
+                // 문자열 그대로 3진법으로 해석하여 10진법으로 변환
+                return Integer.parseInt(sb.toString(), 3);
             }
-
-            // 유클리드 호제법을 이용한 최대공약수 계산
-            public int gcd(int a, int b) {
-                return (b == 0) ? a : gcd(b, a % b);
-            }
-
         }
     }
 }
