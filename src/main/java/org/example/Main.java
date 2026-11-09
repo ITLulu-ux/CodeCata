@@ -8,16 +8,25 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-            public int solution(int n) {
-                StringBuilder sb = new StringBuilder();
+            public String solution(String s) {
+                StringBuilder answer = new StringBuilder();
+                int idx = 0;
 
-                while (n > 0) {
-                    sb.append(n % 3);
-                    n /= 3;
+                for (int i = 0; i < s.length(); i++) {
+                    char c = s.charAt(i);
+                    if (c == ' ') {
+                        idx = 0; // 공백을 만나면 인덱스 초기화
+                        answer.append(" ");
+                    } else {
+                        if (idx % 2 == 0) {
+                            answer.append(Character.toUpperCase(c));
+                        } else {
+                            answer.append(Character.toLowerCase(c));
+                        }
+                        idx++;
+                    }
                 }
-
-                // 문자열 그대로 3진법으로 해석하여 10진법으로 변환
-                return Integer.parseInt(sb.toString(), 3);
+                return answer.toString();
             }
         }
     }
