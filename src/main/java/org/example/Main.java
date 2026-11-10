@@ -8,25 +8,21 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-            public String solution(String s) {
-                StringBuilder answer = new StringBuilder();
-                int idx = 0;
 
-                for (int i = 0; i < s.length(); i++) {
-                    char c = s.charAt(i);
-                    if (c == ' ') {
-                        idx = 0; // 공백을 만나면 인덱스 초기화
-                        answer.append(" ");
-                    } else {
-                        if (idx % 2 == 0) {
-                            answer.append(Character.toUpperCase(c));
-                        } else {
-                            answer.append(Character.toLowerCase(c));
+            public int solution(int[] number) {
+                int answer = 0;
+                int n = number.length;
+
+                for (int i = 0; i < n - 2; i++) {
+                    for (int j = i + 1; j < n - 1; j++) {
+                        for (int k = j + 1; k < n; k++) {
+                            if (number[i] + number[j] + number[k] == 0) {
+                                answer++;
+                            }
                         }
-                        idx++;
                     }
                 }
-                return answer.toString();
+                return answer;
             }
         }
     }
