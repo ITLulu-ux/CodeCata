@@ -8,18 +8,16 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-
-            public int solution(int[] number) {
+            public int solution(String t, String p) {
+                int length = t.length() - p.length() + 1;
+                long pNum = Long.parseLong(p);
                 int answer = 0;
-                int n = number.length;
 
-                for (int i = 0; i < n - 2; i++) {
-                    for (int j = i + 1; j < n - 1; j++) {
-                        for (int k = j + 1; k < n; k++) {
-                            if (number[i] + number[j] + number[k] == 0) {
-                                answer++;
-                            }
-                        }
+                for (int i = 0; i < length; i++) {
+                    String temp = t.substring(i, i + p.length());
+
+                    if (Long.parseLong(temp) <= pNum) {
+                        answer++;
                     }
                 }
                 return answer;
