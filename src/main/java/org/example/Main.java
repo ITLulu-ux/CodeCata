@@ -8,19 +8,19 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-            public int solution(String t, String p) {
-                int length = t.length() - p.length() + 1;
-                long pNum = Long.parseLong(p);
-                int answer = 0;
+            public int solution(int[][] sizes) {
+                int maxW = 0;
+                int maxH = 0;
 
-                for (int i = 0; i < length; i++) {
-                    String temp = t.substring(i, i + p.length());
+                for (int[] card : sizes) {
+                    int w = Math.max(card[0], card[1]); // 긴 쪽
+                    int h = Math.min(card[0], card[1]); // 짧은 쪽
 
-                    if (Long.parseLong(temp) <= pNum) {
-                        answer++;
-                    }
+                    maxW = Math.max(maxW, w);
+                    maxH = Math.max(maxH, h);
                 }
-                return answer;
+
+                return maxW * maxH;
             }
         }
     }
