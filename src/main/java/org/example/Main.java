@@ -8,19 +8,20 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
         class Solution {
-            public int solution(int[][] sizes) {
-                int maxW = 0;
-                int maxH = 0;
-
-                for (int[] card : sizes) {
-                    int w = Math.max(card[0], card[1]); // 긴 쪽
-                    int h = Math.min(card[0], card[1]); // 짧은 쪽
-
-                    maxW = Math.max(maxW, w);
-                    maxH = Math.max(maxH, h);
+            public String solution(String s, int n) {
+                StringBuilder result = new StringBuilder();
+                for (char ch : s.toCharArray()) {
+                    if (ch == ' ') {
+                        result.append(' ');
+                    } else if (Character.isUpperCase(ch)) {
+                        char shifted = (char) ((ch - 'A' + n) % 26 + 'A');
+                        result.append(shifted);
+                    } else if (Character.isLowerCase(ch)) {
+                        char shifted = (char) ((ch - 'z' + n) % 26 + 'z'); // 주의: 아래 참고
+                        result.append(shifted);
+                    }
                 }
-
-                return maxW * maxH;
+                return result.toString();
             }
         }
     }
