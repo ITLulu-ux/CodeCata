@@ -9,19 +9,26 @@ public class Main {
     public static void main(String[] args) {
         class Solution {
             public String solution(String s, int n) {
-                StringBuilder result = new StringBuilder();
-                for (char ch : s.toCharArray()) {
+                String answer = "";
+
+                for (int i = 0; i < s.length(); i++) {
+                    char ch = s.charAt(i);
+
+                    // 공백일 경우
                     if (ch == ' ') {
-                        result.append(' ');
-                    } else if (Character.isUpperCase(ch)) {
-                        char shifted = (char) ((ch - 'A' + n) % 26 + 'A');
-                        result.append(shifted);
-                    } else if (Character.isLowerCase(ch)) {
-                        char shifted = (char) ((ch - 'z' + n) % 26 + 'z'); // 주의: 아래 참고
-                        result.append(shifted);
+                        answer += ch;
+                        continue;
                     }
+
+                    // ch가 소문자인 경우
+                    if (ch >= 'a' && ch <= 'z') {
+                        answer += (char) ((ch - 'a' + n) % 26 + 'a');
+                    } else { // ch가 대문자인 경우
+                        answer += (char) ((ch - 'A' + n) % 26 + 'A');
+                    }
+
                 }
-                return result.toString();
+                return answer;
             }
         }
     }
